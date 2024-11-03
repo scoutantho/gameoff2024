@@ -26,6 +26,9 @@ func _input(event: InputEvent) -> void:
 		$Line2D.add_point(mousePosition - self.global_position) 
 		if $Line2D.get_point_count()-1 == 2:
 			isDrawingLocked = true
+	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_RIGHT:
+		$Line2D.clear_points()
+		isDrawingLocked = false
 
 func lineFunction():	
 	if isDrawableSpace and not isDrawingLocked:
