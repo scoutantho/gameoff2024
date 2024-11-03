@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://78n8g1uho43s" path="res://assets/colorPalette.png" id="1_gk3d6"]
 [ext_resource type="PackedScene" uid="uid://2sjbqq58a3ys" path="res://scenes/player.tscn" id="2_ge4u3"]
 [ext_resource type="PackedScene" uid="uid://bum1au5hyliew" path="res://scenes/killzone.tscn" id="3_3oegt"]
-[ext_resource type="Script" path="res://scripts/drawableArea.gd" id="4_v7kda"]
+[ext_resource type="PackedScene" uid="uid://dviyikapof8nf" path="res://scenes/DrawableLine.tscn" id="4_xtbin"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2inoh"]
 texture = ExtResource("1_gk3d6")
@@ -47,9 +47,7 @@ position = Vector2(281, 753)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_v3a8w")
 
-[node name="DrawableArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("4_v7kda")
-
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="DrawableLine" parent="." instance=ExtResource("4_xtbin")]
+collision_layer = 2
