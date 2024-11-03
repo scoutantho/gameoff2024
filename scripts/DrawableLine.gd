@@ -9,8 +9,8 @@ func displayOverlayDebugging():
 	DebugOverlay.add_stat("", "", "", false)
 	DebugOverlay.add_stat("Self Global Position ", self, "global_position", false)
 	DebugOverlay.add_stat("Mouse Global Position ", self, "get_global_mouse_position", true)
-	DebugOverlay.add_stat("position0", $Line2D, "get_point_position", true, [0])
-	DebugOverlay.add_stat("position1", $Line2D, "get_point_position", true, [1])
+	# DebugOverlay.add_stat("position0", $Line2D, "get_point_position", true, [0])
+	# DebugOverlay.add_stat("position1", $Line2D, "get_point_position", true, [1])
 	
 func _ready():
 	# setting color to the actual state of the powerup we are using, take color from refs file 

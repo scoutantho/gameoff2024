@@ -5,6 +5,7 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_pcdeq"]
 
 [node name="DrawableLine" type="StaticBody2D"]
+collision_layer = 0
 script = ExtResource("1_psplk")
 
 [node name="Line2D" type="Line2D" parent="."]
