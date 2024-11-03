@@ -21,6 +21,7 @@ Refs="*res://scripts/Refs.gd"
 
 [display]
 
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
 [input]
