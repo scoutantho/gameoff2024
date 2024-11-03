@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjgqjvlefie6w"]
+
+[ext_resource type="Texture2D" uid="uid://78n8g1uho43s" path="res://assets/colorPalette.png" id="1_gn1ib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41b2h"]
+atlas = ExtResource("1_gn1ib")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6efc"]
+size = Vector2(16, 16)
+
+[node name="bush" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_41b2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p6efc")
