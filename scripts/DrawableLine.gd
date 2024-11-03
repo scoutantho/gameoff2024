@@ -2,16 +2,15 @@ extends Node2D
 
 @export var isDrawableSpace : bool = true
 @export var isDrawingLocked : bool = false
-
+@onready var coll = $CollisionShape2D
 
 func displayOverlayDebugging():
-	var scene = preload("res://scenes/debug_overlay.tscn")
-	var overlay = scene.instantiate()
-	overlay.add_stat("Line2d Count ", $Line2D, "get_point_count", true)		
-	overlay.add_stat("", "", "", false)
-	overlay.add_stat("Self Global Position ", self, "global_position", false)
-	overlay.add_stat("Mouse Global Position ", self, "get_global_mouse_position", true)
-	add_child(overlay)
+	DebugOverlay.add_stat("Line2d Count ", $Line2D, "get_point_count", true)		
+	DebugOverlay.add_stat("", "", "", false)
+	DebugOverlay.add_stat("Self Global Position ", self, "global_position", false)
+	DebugOverlay.add_stat("Mouse Global Position ", self, "get_global_mouse_position", true)
+	DebugOverlay.add_stat("position0", $Line2D, "get_point_position", true, [0])
+	DebugOverlay.add_stat("position1", $Line2D, "get_point_position", true, [1])
 	
 func _ready():
 	# setting color to the actual state of the powerup we are using, take color from refs file 
@@ -29,6 +28,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_RIGHT:
 		$Line2D.clear_points()
 		isDrawingLocked = false
+	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_MIDDLE:
+		draw_my_cubes()
 
 func lineFunction():	
 	if isDrawableSpace and not isDrawingLocked:
@@ -38,6 +39,21 @@ func lineFunction():
 		else:
 			$Line2D.set_point_position($Line2D.get_point_count()-1, get_global_mouse_position() - self.global_position) #follow mouse
 
+
+func draw_my_cubes():
+	# var scene = preload("res://scenes/cube.tscn")
+	# var instance = scene.instance()
+	# instance.position = $Line2D.get_point_position(0)
+	# add_child(instance)
+	var new_coll = coll.duplicate()
+	var new_shape = coll.shape.duplicate()
+	new_coll.shape = new_shape
+	new_coll.shape.a = $Line2D.get_point_position(0)
+	new_coll.shape.b = $Line2D.get_point_position(1)
+	add_child(new_coll, true)
+	$Line2D.clear_points()
+	isDrawingLocked = false
 	
+
 func _process(_delta):
 	lineFunction()

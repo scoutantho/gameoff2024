@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dviyikapof8nf"]
+[gd_scene load_steps=3 format=3 uid="uid://dviyikapof8nf"]
 
 [ext_resource type="Script" path="res://scripts/DrawableLine.gd" id="1_psplk"]
 
-[node name="DrawableLine" type="Node2D"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pcdeq"]
+
+[node name="DrawableLine" type="StaticBody2D"]
 script = ExtResource("1_psplk")
 
 [node name="Line2D" type="Line2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_pcdeq")
