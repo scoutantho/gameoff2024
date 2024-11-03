@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Refs="*res://scripts/Refs.gd"
+DebugOverlay="*res://scenes/debug_overlay.tscn"
 
 [display]
 
