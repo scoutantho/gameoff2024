@@ -13,23 +13,27 @@ func displayOverlayDebugging():
 	# DebugOverlay.add_stat("position1", $Line2D, "get_point_position", true, [1])
 	
 func _ready():
+	if not GameManager.isCreatePlateformeEnabled:
+		$Line2D.queue_free()
+		return
 	# setting color to the actual state of the powerup we are using, take color from refs file 
 	$Line2D.default_color = Refs.color_blue
 	displayOverlayDebugging()
 	pass
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT && isDrawableSpace && not isDrawingLocked:
-		print("i want to draw something")
-		var mousePosition := get_global_mouse_position()		
-		$Line2D.add_point(mousePosition - self.global_position) 
-		if $Line2D.get_point_count()-1 == 2:
-			isDrawingLocked = true
-	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_RIGHT:
-		$Line2D.clear_points()
-		isDrawingLocked = false
-	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_MIDDLE:
-		draw_my_cubes()
+	if GameManager.isCreatePlateformeEnabled:
+		if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT && isDrawableSpace && not isDrawingLocked:
+			print("i want to draw something")
+			var mousePosition := get_global_mouse_position()		
+			$Line2D.add_point(mousePosition - self.global_position) 
+			if $Line2D.get_point_count()-1 == 2:
+				isDrawingLocked = true
+		if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_RIGHT:
+			$Line2D.clear_points()
+			isDrawingLocked = false
+		if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_MIDDLE:
+			draw_my_cubes()
 
 func lineFunction():	
 	if isDrawableSpace and not isDrawingLocked:
@@ -56,4 +60,5 @@ func draw_my_cubes():
 	
 
 func _process(_delta):
-	lineFunction()
+	if GameManager.isCreatePlateformeEnabled:
+		lineFunction()

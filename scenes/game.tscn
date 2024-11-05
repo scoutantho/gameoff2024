@@ -47,7 +47,5 @@ position = Vector2(281, 753)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_v3a8w")
 
-[node name="Node2D" type="Node2D" parent="."]
-
 [node name="DrawableLine" parent="." instance=ExtResource("4_xtbin")]
 collision_layer = 2
