@@ -5,22 +5,26 @@ extends Node2D
 @onready var coll = $CollisionShape2D
 
 func displayOverlayDebugging():
-	DebugOverlay.add_stat("Line2d Count ", $Line2D, "get_point_count", true)		
-	DebugOverlay.add_stat("", "", "", false)
-	DebugOverlay.add_stat("Self Global Position ", self, "global_position", false)
-	DebugOverlay.add_stat("Mouse Global Position ", self, "get_global_mouse_position", true)
-	# DebugOverlay.add_stat("position0", $Line2D, "get_point_position", true, [0])
-	# DebugOverlay.add_stat("position1", $Line2D, "get_point_position", true, [1])
+	if(GameManager.isDisplayOverlayEnable)
+		DebugOverlay.add_stat("Line2d Count ", $Line2D, "get_point_count", true)		
+		DebugOverlay.add_stat("", "", "", false)
+		DebugOverlay.add_stat("Self Global Position ", self, "global_position", false)
+		DebugOverlay.add_stat("Mouse Global Position ", self, "get_global_mouse_position", true)
+		# DebugOverlay.add_stat("position0", $Line2D, "get_point_position", true, [0])
+		# DebugOverlay.add_stat("position1", $Line2D, "get_point_position", true, [1])
 	
 func _ready():
-	if not GameManager.isCreatePlateformeEnabled:
-		$Line2D.queue_free()
-		return
-	# setting color to the actual state of the powerup we are using, take color from refs file 
-	$Line2D.default_color = Refs.color_blue
+	if GameManager.isCreatePlateformeEnabled:
+		InitLine2D()
+		pass
+	GameManager.connect("isCreatePlateformeEnabling", InitLine2D)	
+	pass
+	
+func InitLine2D() -> void :
+	$Line2D.default_color= Refs.color_blue
 	displayOverlayDebugging()
 	pass
-
+	
 func _input(event: InputEvent) -> void:
 	if GameManager.isCreatePlateformeEnabled:
 		if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT && isDrawableSpace && not isDrawingLocked:
