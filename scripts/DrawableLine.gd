@@ -5,7 +5,7 @@ extends Node2D
 @onready var coll = $CollisionShape2D
 
 func displayOverlayDebugging():
-	if(GameManager.isDisplayOverlayEnable)
+	if(GameManager.isDisplayOverlayEnable):
 		DebugOverlay.add_stat("Line2d Count ", $Line2D, "get_point_count", true)		
 		DebugOverlay.add_stat("", "", "", false)
 		DebugOverlay.add_stat("Self Global Position ", self, "global_position", false)

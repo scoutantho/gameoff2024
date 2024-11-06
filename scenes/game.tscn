@@ -49,5 +49,3 @@ shape = SubResource("WorldBoundaryShape2D_v3a8w")
 
 [node name="DrawableLine" parent="." instance=ExtResource("4_xtbin")]
 collision_layer = 2
-isDrawableSpace = null
-isDrawingLocked = null
