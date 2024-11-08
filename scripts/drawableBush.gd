@@ -12,7 +12,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
 			print("i want to draw something")
 			var mousePosition := get_global_mouse_position()
-			var scene = preload("res://Scenes/bush.tscn")
+			var scene = preload("res://scenes/bush.tscn")
 			bushInstance = scene.instantiate()
 			bushInstance.scale = Vector2(_scale, _scale)
 			print(mousePosition)

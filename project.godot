@@ -26,6 +26,10 @@ DebugOverlay="*res://scenes/debug_overlay.tscn"
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+bush=""
+
 [input]
 
 move_jump={
@@ -50,6 +54,7 @@ move_right={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Wall"
+2d_physics/layer_3="bush"
 
 [rendering]
 
