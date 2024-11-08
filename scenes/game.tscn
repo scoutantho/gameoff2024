@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c3o5beqr7bltv"]
+[gd_scene load_steps=10 format=4 uid="uid://c3o5beqr7bltv"]
 
 [ext_resource type="Texture2D" uid="uid://78n8g1uho43s" path="res://assets/colorPalette.png" id="1_gk3d6"]
 [ext_resource type="PackedScene" uid="uid://2sjbqq58a3ys" path="res://scenes/player.tscn" id="2_ge4u3"]
@@ -33,9 +33,6 @@ sources/0 = SubResource("TileSetAtlasSource_2inoh")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v3a8w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i5xn"]
-size = Vector2(272, 125)
-
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMapLayer" parent="."]
@@ -58,8 +55,5 @@ collision_layer = 2
 [node name="DrawableBushNode2D" parent="." instance=ExtResource("5_33kxa")]
 
 [node name="NonDrawableBush" parent="." instance=ExtResource("6_2wyso")]
-position = Vector2(204, -184)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NonDrawableBush"]
-position = Vector2(126, -7.5)
-shape = SubResource("RectangleShape2D_8i5xn")
+position = Vector2(328, -168)
+scale = Vector2(4.25688, 1.23919)
