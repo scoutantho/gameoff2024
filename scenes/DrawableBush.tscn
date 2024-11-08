@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxeg5jyaunf2i"]
+
+[ext_resource type="Script" path="res://scripts/drawableBush.gd" id="1_ktdq7"]
+
+[node name="DrawableBushNode2D" type="Node2D"]
+position = Vector2(8, -8)
+script = ExtResource("1_ktdq7")

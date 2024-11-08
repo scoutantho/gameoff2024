@@ -1,10 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjgqjvlefie6w"]
 
-[ext_resource type="Texture2D" uid="uid://78n8g1uho43s" path="res://assets/colorPalette.png" id="1_gn1ib"]
+[ext_resource type="Texture2D" uid="uid://2w50pon8yw0x" path="res://icon.svg" id="1_2k5ga"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_41b2h"]
-atlas = ExtResource("1_gn1ib")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvegc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2k5ga")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6efc"]
 size = Vector2(16, 16)
@@ -12,8 +19,12 @@ size = Vector2(16, 16)
 [node name="bush" type="StaticBody2D"]
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_41b2h")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.38419e-07, 5.96046e-07)
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_uvegc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_p6efc")
+one_way_collision = true
