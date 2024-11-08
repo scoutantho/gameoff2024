@@ -4,6 +4,7 @@ extends Node2D
 @export var isDrawingLocked : bool = false
 @onready var coll = $CollisionShape2D
 
+#todo: instantiate a line 2d, instead of using the actual one in order to keep the visual of it 
 func displayOverlayDebugging():
 	if(GameManager.isDisplayOverlayEnable):
 		DebugOverlay.add_stat("Line2d Count ", $Line2D, "get_point_count", true)		

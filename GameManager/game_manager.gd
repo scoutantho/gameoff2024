@@ -11,16 +11,11 @@ var isCreatePlateformeEnable : bool :
 		if value:
 			isCreatePlateformeEnabling.emit() #emit signal, pulled back in the DrawableLine script in order to activate or deactivate it (in the futur probably we will think about adding in the tree or removing it from the tree
 		isCreatePlateformeEnable = value
-	set(value): 
-		if value:
-			isCreatePlateformeEnabling.emit() #emit signal, pulled back in the DrawableLine script in order to activate or deactivate it (in the futur probably we will think about adding in the tree or removing it from the tree
-		isCreateSquareEnable = value
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	isCreatePlateformeEnable = false
-	isCreateSquareEnable = false
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
