@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://c3o5beqr7bltv"]
+[gd_scene load_steps=9 format=4 uid="uid://c3o5beqr7bltv"]
 
 [ext_resource type="Texture2D" uid="uid://78n8g1uho43s" path="res://assets/colorPalette.png" id="1_gk3d6"]
 [ext_resource type="PackedScene" uid="uid://2sjbqq58a3ys" path="res://scenes/player.tscn" id="2_ge4u3"]
 [ext_resource type="PackedScene" uid="uid://bum1au5hyliew" path="res://scenes/killzone.tscn" id="3_3oegt"]
 [ext_resource type="PackedScene" uid="uid://dviyikapof8nf" path="res://scenes/DrawableLine.tscn" id="4_xtbin"]
+[ext_resource type="PackedScene" uid="uid://dxeg5jyaunf2i" path="res://scenes/DrawableBush.tscn" id="5_33kxa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2inoh"]
 texture = ExtResource("1_gk3d6")
@@ -49,3 +50,5 @@ shape = SubResource("WorldBoundaryShape2D_v3a8w")
 
 [node name="DrawableLine" parent="." instance=ExtResource("4_xtbin")]
 collision_layer = 2
+
+[node name="DrawableBushNode2D" parent="." instance=ExtResource("5_33kxa")]
