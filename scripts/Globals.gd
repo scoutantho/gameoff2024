@@ -1,6 +1,7 @@
 extends Node
 class_name Globals
 
+enum powerUp {	bush, lava, water}
 static var player_hasDied : bool = false
 static var player_canInteract : bool = true
 
@@ -12,3 +13,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+

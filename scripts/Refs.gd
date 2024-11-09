@@ -1,5 +1,4 @@
 extends Node
-
 @export_group("ColorPalette")
 @export var color_blue : Color = Color("#00303b")
 @export var color_red : Color = Color("#ff7777")

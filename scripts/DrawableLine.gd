@@ -15,10 +15,10 @@ func displayOverlayDebugging():
 		# DebugOverlay.add_stat("position1", $Line2D, "get_point_position", true, [1])
 	
 func _ready():
-	if GameManager.isCreatePlateformeEnable:
+	if GameManager.isCheatPlateformEnable:
 		InitLine2D()
 		pass
-	GameManager.connect("isCreatePlateformeEnabling", InitLine2D)	
+	GameManager.connect("isCheatPlateformEnabling", InitLine2D)	
 	pass
 	
 func InitLine2D() -> void :
@@ -27,7 +27,7 @@ func InitLine2D() -> void :
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if GameManager.isCreatePlateformeEnable:
+	if GameManager.isCheatPlateformEnable:
 		if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT && isDrawableSpace && not isDrawingLocked:
 			print("i want to draw something")
 			var mousePosition := get_global_mouse_position()		
@@ -65,5 +65,5 @@ func draw_my_cubes():
 	
 
 func _process(_delta):
-	if GameManager.isCreatePlateformeEnable:
+	if GameManager.isCheatPlateformEnable:
 		lineFunction()
