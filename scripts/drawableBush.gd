@@ -2,6 +2,8 @@ extends Node2D
 
 @export var _scale : float = 1
 var bushInstance
+var waterInstance
+var lavaInstance
 @export var isDrawableSpace : bool = true
 @export var max_scaleUp : float = 5
 @export var max_scaleDown : float = 0.1
@@ -17,7 +19,7 @@ func _input(event: InputEvent) -> void:
 				bushInstance = scene.instantiate()
 				bushInstance.scale = Vector2(_scale, _scale)
 				print(mousePosition)
-				bushInstance.position = mousePosition
+				bushInstance.position = mousePosition #if we want to have a rigid body, we might want to activate and deactivate floatability ? 
 				add_child(bushInstance)
 				return
 		if(bushInstance != null):
@@ -41,6 +43,23 @@ func _input(event: InputEvent) -> void:
 				else :
 					print("not drawable space")
 					#play not possible sound and animation
+	if GameManager.actualPowerUp == Globals.powerUp.lava:
+		if bushInstance != null:
+			bushInstance = null
+	if GameManager.actualPowerUp == Globals.powerUp.water:
+		if bushInstance != null:
+			bushInstance = null
+		if waterInstance == null:
+			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
+				print("i want to draw something")
+				var mousePosition := get_global_mouse_position()
+				var scene = preload("res://scenes/water.tscn")
+				waterInstance = scene.instantiate()
+				print(mousePosition)
+				waterInstance.position = mousePosition
+				add_child(waterInstance)
+				waterInstance = null
+				return
 			
 
 func _process(_delta):

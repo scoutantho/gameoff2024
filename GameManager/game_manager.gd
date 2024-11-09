@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 			actualPowerUp = Globals.powerUp.water
 		elif actualPowerUp == Globals.powerUp.water:
 			actualPowerUp = Globals.powerUp.bush
-		print_name_and_value_of_variable(actualPowerUp)
+		print("actual power up is : ", actualPowerUp)
 
 
 func print_name_and_value_of_variable(string):
