@@ -4,6 +4,9 @@ extends Node2D
 var playerHasDied = false
 var isDisplayOverlayEnable: bool = true
 var actualPowerUp : Globals.powerUp = Globals.powerUp.bush
+var cheatEnable = false
+signal noClipEnabling
+var no_clip_enable = false
 
 signal isCheatPlateformEnabling
 var isCheatPlateformEnable : bool : 
@@ -16,6 +19,7 @@ var isCheatPlateformEnable : bool :
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	isCheatPlateformEnable = false
+	Console.add_command("noclip", console_no_clip)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,6 +42,11 @@ func print_name_and_value_of_variable(string):
 			print(i["name"] + " is " + str(get(string)))
 			break
 
-
+func console_no_clip(): #convert to signal ? 
+	no_clip_enable = !no_clip_enable
+	noClipEnabling.emit()
+	print("no clip is now : ", no_clip_enable)
+	cheatEnable = true
+	pass
 
 	

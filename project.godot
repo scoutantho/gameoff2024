@@ -20,12 +20,17 @@ config/icon="res://icon.svg"
 Refs="*res://scripts/Refs.gd"
 GameManager="*res://GameManager/game_manager.tscn"
 DebugOverlay="*res://scenes/debug_overlay.tscn"
+Console="*res://addons/console/console.gd"
 
 [display]
 
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg")
 
 [global_group]
 

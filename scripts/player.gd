@@ -5,6 +5,18 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+func _ready() -> void:
+	GameManager.connect("noClipEnabling", on_no_clip_enabling)	
+	pass
+
+func on_no_clip_enabling():
+	if GameManager.no_clip_enable:
+		set_physics_process(false)
+		self.collision_mask = 0
+	else:
+		set_physics_process(true)
+		self.collision_mask = 2
+	pass
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
