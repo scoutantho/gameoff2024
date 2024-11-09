@@ -54,10 +54,14 @@ collision_layer = 2
 
 [node name="DrawableBushNode2D" parent="." instance=ExtResource("5_33kxa")]
 
-[node name="NonDrawableBush" parent="." instance=ExtResource("6_2wyso")]
+[node name="nonDrawable_bush" parent="." instance=ExtResource("6_2wyso")]
 position = Vector2(328, -168)
 scale = Vector2(4.25688, 1.23919)
 
-[node name="NonDrawableBush2" parent="." instance=ExtResource("6_2wyso")]
+[node name="nonDrawable_lava" parent="." instance=ExtResource("6_2wyso")]
 position = Vector2(112, -224)
 powerUpWhoCantDraw = 1
+
+[node name="nonDrawableWater" parent="." instance=ExtResource("6_2wyso")]
+position = Vector2(600, -112)
+powerUpWhoCantDraw = 2
