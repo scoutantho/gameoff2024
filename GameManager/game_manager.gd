@@ -1,7 +1,6 @@
 extends Node2D
 
 #todo replace with an enum and a colorPicker or something like that, saw it on a YT video
-static var colors = ["","",""] 
 var playerHasDied = false
 var isDisplayOverlayEnable: bool = true
 var actualPowerUp : Globals.powerUp = Globals.powerUp.bush
@@ -20,6 +19,7 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+#todo having a canvas telling you wich power up you have actually selected
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("change_power"):
 		if actualPowerUp == Globals.powerUp.bush:

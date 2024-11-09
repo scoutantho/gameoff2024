@@ -18,6 +18,7 @@ size = Vector2(16, 16)
 
 [node name="bush" type="Area2D" groups=["bush"]]
 collision_layer = 4
+collision_mask = 3
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -28,8 +29,9 @@ sprite_frames = SubResource("SpriteFrames_uvegc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_p6efc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="RigidBody2D" parent="."]
 collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_p6efc")

@@ -57,3 +57,7 @@ collision_layer = 2
 [node name="NonDrawableBush" parent="." instance=ExtResource("6_2wyso")]
 position = Vector2(328, -168)
 scale = Vector2(4.25688, 1.23919)
+
+[node name="NonDrawableBush2" parent="." instance=ExtResource("6_2wyso")]
+position = Vector2(112, -224)
+powerUpWhoCantDraw = 1
