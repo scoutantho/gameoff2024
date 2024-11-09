@@ -8,8 +8,8 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ahj3a"]
 
-[node name="Area2D" type="RigidBody2D"]
-collision_layer = 0
+[node name="Area2D" type="RigidBody2D" groups=["water"]]
+collision_layer = 16
 collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

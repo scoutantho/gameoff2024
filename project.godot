@@ -30,6 +30,8 @@ window/vsync/vsync_mode=0
 [global_group]
 
 bush=""
+lava=""
+water=""
 
 [input]
 
@@ -61,6 +63,8 @@ change_power={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Wall"
 2d_physics/layer_3="bush"
+2d_physics/layer_4="lava"
+2d_physics/layer_5="water"
 
 [rendering]
 
