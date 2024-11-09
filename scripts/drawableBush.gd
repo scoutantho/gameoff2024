@@ -19,6 +19,7 @@ func _input(event: InputEvent) -> void:
 				bushInstance = scene.instantiate()
 				bushInstance.scale = Vector2(_scale, _scale)
 				print(mousePosition)
+				bushInstance.collision_mask	= 0
 				bushInstance.position = mousePosition #if we want to have a rigid body, we might want to activate and deactivate floatability ? 
 				add_child(bushInstance)
 				return
@@ -40,6 +41,7 @@ func _input(event: InputEvent) -> void:
 				if isDrawableSpace:
 					var mousePosition := get_global_mouse_position()
 					bushInstance.position = mousePosition
+					bushInstance.collision_mask	= 1
 					bushInstance = null
 				else :
 					print("not drawable space")
@@ -47,26 +49,36 @@ func _input(event: InputEvent) -> void:
 	if GameManager.actualPowerUp == Globals.powerUp.lava:
 		if bushInstance != null:
 			bushInstance = null
-	if GameManager.actualPowerUp == Globals.powerUp.water:
-		if bushInstance != null:
-			bushInstance = null
-		if waterInstance == null:
-			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
-				print("i want to draw some water")
-				var mousePosition := get_global_mouse_position()
-				var scene = preload("res://scenes/water.tscn")
-				waterInstance = scene.instantiate()
-				print(mousePosition)
-				waterInstance.position = mousePosition
-				add_child(waterInstance)
-				waterInstance = null
-				return
+	# if GameManager.actualPowerUp == Globals.powerUp.water: -> handle in process because i want a while on the input mouse button
+	# 	if bushInstance != null:
+	# 		bushInstance = null
+	# 	if waterInstance == null:
+	# 		if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
+	# 			print("i want to draw some water")
+	# 			var mousePosition := get_global_mouse_position()
+	# 			var scene = preload("res://scenes/water.tscn")
+	# 			waterInstance = scene.instantiate()
+	# 			print(mousePosition)
+	# 			waterInstance.position = mousePosition
+	# 			add_child(waterInstance)
+	# 			waterInstance = null
+	# 			return
 			
 
 func _process(_delta):
 	if bushInstance != null :
 		var mousePosition := get_global_mouse_position()
 		bushInstance.position = mousePosition
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && GameManager.actualPowerUp == Globals.powerUp.water:
+		print("i want to draw some water")
+		var mousePosition := get_global_mouse_position()
+		var scene = preload("res://scenes/water.tscn")
+		waterInstance = scene.instantiate()
+		print(mousePosition)
+		waterInstance.position = mousePosition
+		add_child(waterInstance)
+		waterInstance = null
+		return
 	pass
 
 		
