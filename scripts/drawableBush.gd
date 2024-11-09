@@ -41,7 +41,7 @@ func _input(event: InputEvent) -> void:
 				if isDrawableSpace:
 					var mousePosition := get_global_mouse_position()
 					bushInstance.position = mousePosition
-					bushInstance.collision_mask	= 1
+					bushInstance.set_collision_mask(pow(2,1-1) + pow(2,5-1)) #player + #water -> https://docs.godotengine.org/en/latest/tutorials/physics/physics_introduction.html#code-example
 					bushInstance = null
 				else :
 					print("not drawable space")
@@ -70,11 +70,11 @@ func _process(_delta):
 		var mousePosition := get_global_mouse_position()
 		bushInstance.position = mousePosition
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && GameManager.actualPowerUp == Globals.powerUp.water:
-		print("i want to draw some water")
+		# print("i want to draw some water")
 		var mousePosition := get_global_mouse_position()
 		var scene = preload("res://scenes/water.tscn")
 		waterInstance = scene.instantiate()
-		print(mousePosition)
+		# print(mousePosition)
 		waterInstance.position = mousePosition
 		add_child(waterInstance)
 		waterInstance = null
