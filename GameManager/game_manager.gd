@@ -4,6 +4,7 @@ extends Node2D
 var playerHasDied = false
 var isDisplayOverlayEnable: bool = true
 var actualPowerUp : Globals.powerUp = Globals.powerUp.bush
+@export var powerUpAvailable : Array = [Globals.powerUp.bush]
 var cheatEnable = false
 signal noClipEnabling
 var no_clip_enable = false
@@ -26,12 +27,15 @@ func _ready() -> void:
 #todo having a canvas telling you wich power up you have actually selected
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("change_power"):
-		if actualPowerUp == Globals.powerUp.bush:
-			actualPowerUp = Globals.powerUp.lava
-		elif actualPowerUp == Globals.powerUp.lava:
-			actualPowerUp = Globals.powerUp.water
-		elif actualPowerUp == Globals.powerUp.water:
-			actualPowerUp = Globals.powerUp.bush
+		#if acutalPowerUp +1 is in the powerUpAvailable array, we can change the power up to the next one
+		#otherwise we change to the first one
+		#todo add a sound when changing power up
+		#todo add a canvas telling you wich power up you have actually selected
+		var indexPowerUpactual = powerUpAvailable.find(actualPowerUp)
+		if powerUpAvailable.size() >= indexPowerUpactual + 1 + 1: #+1 because we want to check if the next one is in the array (and size is +1 than index, size start at 1 and index at 0)
+			actualPowerUp = powerUpAvailable[indexPowerUpactual + 1]
+		else:
+			actualPowerUp = powerUpAvailable[0]
 		print("actual power up is : ", actualPowerUp)
 
 
