@@ -1,10 +1,11 @@
 extends Node2D
 
 #todo replace with an enum and a colorPicker or something like that, saw it on a YT video
-var playerHasDied = false
 var isDisplayOverlayEnable: bool = true
 var actualPowerUp : Globals.powerUp = Globals.powerUp.bush
 @export var powerUpAvailable : Array = [Globals.powerUp.bush]
+
+
 var cheatEnable = false
 signal noClipEnabling
 var no_clip_enable = false
@@ -52,5 +53,7 @@ func console_no_clip(): #convert to signal ?
 	print("no clip is now : ", no_clip_enable)
 	cheatEnable = true
 	pass
+
+
 
 	
