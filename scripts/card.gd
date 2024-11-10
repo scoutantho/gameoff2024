@@ -8,7 +8,7 @@ var lavaEnabled: bool = false
 var historyEnabled: bool = false
 
 func _on_body_entered(body:Node2D) -> void:
-	print("i am card : ", card_name)
+	print("i am card : ", Globals.cardNames.find_key(card_name))
 	if body.is_in_group("Player"):
 		#add the card to the player inventory
 		body.cardHolds.append(card_name)
