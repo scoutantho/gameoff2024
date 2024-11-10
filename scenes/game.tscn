@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c3o5beqr7bltv"]
+[gd_scene load_steps=11 format=4 uid="uid://c3o5beqr7bltv"]
 
 [ext_resource type="Texture2D" uid="uid://78n8g1uho43s" path="res://assets/colorPalette.png" id="1_gk3d6"]
 [ext_resource type="PackedScene" uid="uid://2sjbqq58a3ys" path="res://scenes/player.tscn" id="2_ge4u3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dviyikapof8nf" path="res://scenes/DrawableLine.tscn" id="4_xtbin"]
 [ext_resource type="PackedScene" uid="uid://dxeg5jyaunf2i" path="res://scenes/DrawableBush.tscn" id="5_33kxa"]
 [ext_resource type="PackedScene" uid="uid://bgs6ugycg7st7" path="res://scenes/non_drawable_bush.tscn" id="6_2wyso"]
+[ext_resource type="PackedScene" uid="uid://ct8j5e2yif5jt" path="res://scenes/card.tscn" id="7_i4f6q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2inoh"]
 texture = ExtResource("1_gk3d6")
@@ -55,7 +56,7 @@ collision_layer = 2
 [node name="DrawableBushNode2D" parent="." instance=ExtResource("5_33kxa")]
 
 [node name="nonDrawable_bush" parent="." instance=ExtResource("6_2wyso")]
-position = Vector2(328, -168)
+position = Vector2(312, -184)
 scale = Vector2(4.25688, 1.23919)
 
 [node name="nonDrawable_lava" parent="." instance=ExtResource("6_2wyso")]
@@ -65,3 +66,10 @@ powerUpWhoCantDraw = 1
 [node name="nonDrawableWater" parent="." instance=ExtResource("6_2wyso")]
 position = Vector2(600, -112)
 powerUpWhoCantDraw = 2
+
+[node name="card" parent="." instance=ExtResource("7_i4f6q")]
+position = Vector2(1200, -160)
+
+[node name="card2" parent="." instance=ExtResource("7_i4f6q")]
+position = Vector2(144, -104)
+card_name = 1

@@ -19,7 +19,19 @@ func _process(_delta):
 	
 	for s in stats:
 		var value = null
-		
+		# if typeof(s[1]) == TYPE_ARRAY: 
+		# 	for i in range(s[1].size):
+		# 		if s[1][i] and weakref(s[1][i]).get_ref():
+		# 			if s[3]:
+		# 				if len(s[4]) == 0:
+		# 					value = s[1][i].call(s[2])
+		# 				else:
+		# 					value = s[1][i].callv(s[2], s[4])
+		# 			else:
+		# 				value = s[1][i].get(s[2])
+		# 			label_text += str(s[0], " ", i, ": ", value)
+		# 			label_text += "\n"
+		# else :
 		if s[1] and weakref(s[1]).get_ref():
 			if s[3]:
 				if len(s[4]) == 0:

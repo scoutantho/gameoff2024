@@ -13,7 +13,6 @@ func _input(event: InputEvent) -> void:
 	if GameManager.actualPowerUp == Globals.powerUp.bush:
 		if bushInstance == null:
 			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
-				print("i want to draw a bush")
 				var mousePosition := get_global_mouse_position()
 				var scene = preload("res://scenes/bush.tscn")
 				bushInstance = scene.instantiate()
@@ -30,12 +29,10 @@ func _input(event: InputEvent) -> void:
 			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				_scale -= 0.1
 				_scale = max(max_scaleDown, _scale)
-				print(_scale)
 				bushInstance.scale = Vector2(_scale, _scale)
 			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				_scale += 0.1
 				_scale = min(max_scaleUp, _scale)
-				print(_scale)
 				bushInstance.scale = Vector2(_scale, _scale)
 			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
 				if isDrawableSpace:

@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 @onready var sprite := $Sprite
+@export var cardHolds : Array[Globals.cardNames] = []
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	GameManager.connect("noClipEnabling", on_no_clip_enabling)	
+	# DebugOverlay.add_stat("Player card holds", cardHolds, "cardHolds", false)
 	pass
 
 func on_no_clip_enabling():
