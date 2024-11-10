@@ -54,6 +54,8 @@ func console_no_clip(): #convert to signal ?
 	cheatEnable = true
 	pass
 
-
+func resetWhenDied() -> void:
+	actualPowerUp = Globals.powerUp.bush
+	powerUpAvailable = [Globals.powerUp.bush]
 
 	
