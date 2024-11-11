@@ -15,7 +15,17 @@ func _process(_delta: float) -> void:
 	if (numberOfWater >= 100 && isAlreadyGrowing == false):
 		print("I SHOULD GROW")
 		var actualScale = self.scale
+
+		# is it possible to create a function that takes like fex frames to get bigger in size and change the visibility of the sprite ?
 		self.scale = Vector2(actualScale.x, actualScale.y * 2)
+		#get child sprite 
+		$growthSprite.visible = true
+		$growthSprite.scale = Vector2(1, 0.5) # force size of the sprite because it's 32/16 
+		$idleSprite.visible = false
+		$growthSprite.animation = "growth"
+		$growthSprite.play("growth")
+		$growthSprite.play("idle")
+
 		isAlreadyGrowing = true
 
 	pass # Replace with function body.
