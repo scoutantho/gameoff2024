@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5edw1f538xvl"]
 
-[ext_resource type="Texture2D" uid="uid://78n8g1uho43s" path="res://assets/colorPalette.png" id="1_0v1db"]
+[ext_resource type="Texture2D" uid="uid://m3sncs3lvkhr" path="res://assets/water.png" id="1_vayxq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3fuj"]
-atlas = ExtResource("1_0v1db")
-region = Rect2(48, 0, 16, 16)
+atlas = ExtResource("1_vayxq")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ahj3a"]
+radius = 8.0
 
 [node name="water" type="RigidBody2D" groups=["water"]]
 collision_layer = 16

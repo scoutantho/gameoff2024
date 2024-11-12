@@ -6,6 +6,16 @@ extends Area2D
 var waterEnabled: bool = false
 var lavaEnabled: bool = false
 var historyEnabled: bool = false
+@onready var sprite: AnimatedSprite2D = $cardSprite
+
+func _ready() -> void:
+	match card_name:
+		Globals.cardNames.color_blue1, Globals.cardNames.color_blue2, Globals.cardNames.color_blue3:
+			sprite.animation = "colorBlue"
+		Globals.cardNames.color_red1, Globals.cardNames.color_red2, Globals.cardNames.color_red3:
+			sprite.animation = "colorRed"
+		Globals.cardNames.story1, Globals.cardNames.story2, Globals.cardNames.story3:
+			sprite.animation = "colorStory"
 
 func _on_body_entered(body:Node2D) -> void:
 	print("i am card : ", Globals.cardNames.find_key(card_name))
