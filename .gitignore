@@ -2,7 +2,7 @@
 .godot/
 /android/
 .vs/
-/addons/godot_sfxr
+/addons
 /images
 .vscode/settings.json
 /build
