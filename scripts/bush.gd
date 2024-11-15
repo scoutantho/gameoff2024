@@ -25,7 +25,22 @@ func _process(_delta: float) -> void:
 		$growthSprite.animation = "growth"
 		$growthSprite.play("growth")
 		$growthSprite.play("idle")
-
+	
 		isAlreadyGrowing = true
 
 	pass # Replace with function body.
+
+func _ready() -> void:
+	$Audio/spawn.play()
+	pass # Replace with function body.	
+
+func _on_remove_sound_finished() -> void:
+	queue_free()
+
+func remove_bush() -> void:
+	var audio_player = $Audio/remove as AudioStreamPlayer
+	if audio_player:
+		audio_player.play()
+		audio_player.connect("finished", _on_remove_sound_finished)
+	else:
+		queue_free()

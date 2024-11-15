@@ -157,3 +157,4 @@ one_way_collision = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="finished" from="Audio/grow" to="." method="_on_remove_sound_finished"]

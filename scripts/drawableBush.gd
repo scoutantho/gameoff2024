@@ -24,8 +24,14 @@ func _input(event: InputEvent) -> void:
 				return
 		if(bushInstance != null):
 			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_RIGHT:
-				bushInstance.queue_free()
-				bushInstance = null
+				bushInstance.call("remove_bush")
+				#				 var audio_player = bushInstance.get_node("Audio/remove") as AudioStreamPlayer
+				# if audio_player:
+				# 	audio_player.play()
+				# 	audio_player.connect("_on_remove_sound_finished", _on_remove_sound_finished)
+				# else:
+				# 	bushInstance.queue_free()
+				# 	bushInstance = null				
 			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				_scale -= 0.1
 				_scale = max(max_scaleDown, _scale)
@@ -77,5 +83,3 @@ func _process(_delta):
 		waterInstance = null
 		return
 	pass
-
-		
