@@ -198,7 +198,7 @@ animations = [{
 [node name="card" type="Area2D"]
 collision_layer = 0
 audio_bus_override = true
-audio_bus_name = &"SoundFx"
+audio_bus_name = &"SFX"
 script = ExtResource("1_opp4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

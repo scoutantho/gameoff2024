@@ -116,6 +116,7 @@ script = ExtResource("1_ws4bq")
 
 [node name="spawn" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("3_sslhf")
+bus = &"SFX"
 
 [node name="remove" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("4_tgypj")
