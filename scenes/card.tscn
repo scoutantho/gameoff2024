@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://ct8j5e2yif5jt"]
+[gd_scene load_steps=32 format=3 uid="uid://ct8j5e2yif5jt"]
 
 [ext_resource type="Texture2D" uid="uid://cbnt23cdcivma" path="res://assets/Card.png" id="1_7my5t"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_opp4c"]
 [ext_resource type="Texture2D" uid="uid://cxvc4jteffsse" path="res://assets/Card2-sheet.png" id="2_s74y8"]
 [ext_resource type="Texture2D" uid="uid://b755cgymhqe3p" path="res://assets/Card3-sheet.png" id="4_xso1w"]
+[ext_resource type="AudioStream" uid="uid://cwiibqdmvne13" path="res://sounds/pickup.sfxr" id="5_gdmqa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqn6i"]
 radius = 6.0
@@ -196,6 +197,8 @@ animations = [{
 
 [node name="card" type="Area2D"]
 collision_layer = 0
+audio_bus_override = true
+audio_bus_name = &"SoundFx"
 script = ExtResource("1_opp4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -207,4 +210,8 @@ animation = &"colorBlue"
 autoplay = "colorRed"
 frame_progress = 0.000181695
 
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gdmqa")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="audio" to="." method="_on_audio_finished"]

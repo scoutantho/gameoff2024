@@ -18,16 +18,20 @@ func _ready() -> void:
 			sprite.animation = "colorStory"
 
 func _on_body_entered(body:Node2D) -> void:
-	print("i am card : ", Globals.cardNames.find_key(card_name))
 	if body.is_in_group("Player"):
-		#add the card to the player inventory
-		body.cardHolds.append(card_name)
-		#remove the card from the scene
-		enablingWaterPowerUp(body)
-		queue_free()
+		print("i am card added : ", Globals.cardNames.find_key(card_name))
+		pickupCard(body)
 	pass # Replace with function body.
 
-func enablingWaterPowerUp(player) -> void:
+func pickupCard(player) -> void:
+	$audio.play()
+	#add the card to the player inventory
+	player.cardHolds.append(card_name)
+	#remove the card from the scene
+	changingPowerUp(player)
+	hide()
+
+func changingPowerUp(player) -> void:
 	 #check if player has the 3 cards of blue color
 	 #if yes, enable the water power up
 	 #if no, do nothing
@@ -45,3 +49,8 @@ func enablingWaterPowerUp(player) -> void:
 		# todo handle the story thing -> how to get new powers ?
 		historyEnabled = true
 		print("history power up enabled")
+
+
+func _on_audio_finished() -> void:
+	queue_free()
+	pass # Replace with function body.
