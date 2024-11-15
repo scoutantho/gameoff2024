@@ -24,14 +24,7 @@ func _input(event: InputEvent) -> void:
 				return
 		if(bushInstance != null):
 			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_RIGHT:
-				bushInstance.call("remove_bush")
-				#				 var audio_player = bushInstance.get_node("Audio/remove") as AudioStreamPlayer
-				# if audio_player:
-				# 	audio_player.play()
-				# 	audio_player.connect("_on_remove_sound_finished", _on_remove_sound_finished)
-				# else:
-				# 	bushInstance.queue_free()
-				# 	bushInstance = null				
+				bushInstance.call("remove_bush")		
 			if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				_scale -= 0.1
 				_scale = max(max_scaleDown, _scale)
@@ -52,20 +45,6 @@ func _input(event: InputEvent) -> void:
 	if GameManager.actualPowerUp == Globals.powerUp.lava:
 		if bushInstance != null:
 			bushInstance = null
-	# if GameManager.actualPowerUp == Globals.powerUp.water: -> handle in process because i want a while on the input mouse button
-	# 	if bushInstance != null:
-	# 		bushInstance = null
-	# 	if waterInstance == null:
-	# 		if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
-	# 			print("i want to draw some water")
-	# 			var mousePosition := get_global_mouse_position()
-	# 			var scene = preload("res://scenes/water.tscn")
-	# 			waterInstance = scene.instantiate()
-	# 			print(mousePosition)
-	# 			waterInstance.position = mousePosition
-	# 			add_child(waterInstance)
-	# 			waterInstance = null
-	# 			return
 			
 
 func _process(_delta):
