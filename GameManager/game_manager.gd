@@ -9,6 +9,15 @@ var actualPowerUp : Globals.powerUp = Globals.powerUp.bush
 var cheatEnable = false
 signal noClipEnabling
 var no_clip_enable = false
+var isAllcolorEnableCheatCode: bool : 
+	set(value): 
+		if value:
+			cheatEnable = true
+			powerUpAvailable = [Globals.powerUp.bush, Globals.powerUp.water, Globals.powerUp.lava]
+		else:
+			cheatEnable = false
+			powerUpAvailable = [Globals.powerUp.bush]
+		isAllcolorEnableCheatCode = value
 
 signal isCheatPlateformEnabling
 var isCheatPlateformEnable : bool : 
