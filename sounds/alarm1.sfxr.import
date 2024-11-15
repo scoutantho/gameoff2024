@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://dv81qsmr8mkr1"
+path="res://.godot/imported/alarm1.sfxr-2e98da3f7a78c44faee014d076838087.sample"
+
+[deps]
+
+source_file="res://sounds/alarm1.sfxr"
+dest_files=["res://.godot/imported/alarm1.sfxr-2e98da3f7a78c44faee014d076838087.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

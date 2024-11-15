@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://cebjgemaugnl3"
+path="res://.godot/imported/car.sfxr-4c0d1c1af039176b47ca5379481df3f6.sample"
+
+[deps]
+
+source_file="res://sounds/car.sfxr"
+dest_files=["res://.godot/imported/car.sfxr-4c0d1c1af039176b47ca5379481df3f6.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

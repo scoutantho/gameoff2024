@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://wm1e0arhpidt"
+path="res://.godot/imported/segonfle.sfxr-6ccff639d01dd686fcea4d98d3d564d0.sample"
+
+[deps]
+
+source_file="res://sounds/segonfle.sfxr"
+dest_files=["res://.godot/imported/segonfle.sfxr-6ccff639d01dd686fcea4d98d3d564d0.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

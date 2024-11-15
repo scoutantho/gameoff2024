@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://de4g3gdnyw2il"
+path="res://.godot/imported/dropInWater.sfxr-04b252076685ab05b3e499cdf9659586.sample"
+
+[deps]
+
+source_file="res://sounds/dropInWater.sfxr"
+dest_files=["res://.godot/imported/dropInWater.sfxr-04b252076685ab05b3e499cdf9659586.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0
