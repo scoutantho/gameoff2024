@@ -24,7 +24,8 @@ func _process(_delta: float) -> void:
 		$idleSprite.visible = false
 		$growthSprite.animation = "growth"
 		$growthSprite.play("growth")
-		$growthSprite.play("idle")
+		# $growthSprite.animation = "idle"
+		# $growthSprite.play("idle")
 	
 		isAlreadyGrowing = true
 
@@ -32,6 +33,9 @@ func _process(_delta: float) -> void:
 
 func _ready() -> void:
 	$Audio/spawn.play()
+	$idleSprite.animation = "spawn"
+	print("after spawn played ")
+	# $idleSprite.play("idle")	
 	pass # Replace with function body.	
 
 func _on_remove_sound_finished() -> void:
@@ -41,6 +45,16 @@ func remove_bush() -> void:
 	var audio_player = $Audio/remove as AudioStreamPlayer
 	if audio_player:
 		audio_player.play()
-		audio_player.connect("finished", _on_remove_sound_finished)
+		# audio_player.connect("finished", _on_remove_sound_finished)
 	else:
 		queue_free()
+
+func _on_idle_sprite_animation_finished() -> void:
+	if $idleSprite.animation == "spawn":
+		print("animation finished")
+		$idleSprite.animation = "idle"
+		$idleSprite.play("idle")
+		pass # Replace with function body.
+	if $growthSprite.animation == "growth" and $growthSprite.visible == true:		
+		$growthSprite.animation = "idle"
+		$growthSprite.play("idle")
