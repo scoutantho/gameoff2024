@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://fd6y6egcuugx"
+path="res://.godot/imported/bush_remove.sfxr-5d6aefbb14fb4db6a9272f86a4421036.sample"
+
+[deps]
+
+source_file="res://sounds/bush_remove.sfxr"
+dest_files=["res://.godot/imported/bush_remove.sfxr-5d6aefbb14fb4db6a9272f86a4421036.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0
