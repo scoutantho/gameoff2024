@@ -1,7 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjgqjvlefie6w"]
+[gd_scene load_steps=20 format=3 uid="uid://cjgqjvlefie6w"]
 
 [ext_resource type="Script" path="res://scripts/bush.gd" id="1_ws4bq"]
 [ext_resource type="Texture2D" uid="uid://dfjlu3x550oym" path="res://assets/bush.png" id="2_qm11a"]
+[ext_resource type="AudioStream" uid="uid://cc5b85hbd5asw" path="res://sounds/bush1.sfxr" id="3_sslhf"]
+[ext_resource type="AudioStream" uid="uid://fd6y6egcuugx" path="res://sounds/bush_remove.sfxr" id="4_tgypj"]
+[ext_resource type="AudioStream" uid="uid://c54r3kuvag37c" path="res://sounds/bush_grow.sfxr" id="5_31ymm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbfhx"]
 atlas = ExtResource("2_qm11a")
@@ -108,6 +111,17 @@ size = Vector2(16, 16)
 collision_layer = 4
 collision_mask = 17
 script = ExtResource("1_ws4bq")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="spawn" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_sslhf")
+
+[node name="remove" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_tgypj")
+
+[node name="grow" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_31ymm")
 
 [node name="idleSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

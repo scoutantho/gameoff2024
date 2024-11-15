@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 	if (numberOfWater >= 100 && isAlreadyGrowing == false):
 		print("I SHOULD GROW")
 		var actualScale = self.scale
-
+		$Audio/grow.play()
 		# is it possible to create a function that takes like fex frames to get bigger in size and change the visibility of the sprite ?
 		self.scale = Vector2(actualScale.x, actualScale.y * 2)
 		#get child sprite 
