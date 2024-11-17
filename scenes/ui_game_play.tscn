@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdsjuhbwyhysr"]
+
+[ext_resource type="Texture2D" uid="uid://b25q6d6rmi5fo" path="res://assets/waterdrop32_3.png" id="1_bwy6c"]
+[ext_resource type="Texture2D" uid="uid://cls8545l3axwr" path="res://assets/lavadrop32_3.png" id="2_br5si"]
+[ext_resource type="Texture2D" uid="uid://dfjlu3x550oym" path="res://assets/bush.png" id="3_8bscj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja6au"]
+atlas = ExtResource("3_8bscj")
+region = Rect2(224, 8, 32, 24)
+
+[node name="UiGamePlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -48.0
+offset_right = 50.0
+offset_bottom = 48.0
+grow_vertical = 2
+
+[node name="waterPower" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_bwy6c")
+
+[node name="lavaPower" type="TextureRect" parent="GridContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_br5si")
+flip_h = true
+
+[node name="bushPower" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ja6au")

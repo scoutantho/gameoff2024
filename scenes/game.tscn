@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c3o5beqr7bltv"]
+[gd_scene load_steps=12 format=4 uid="uid://c3o5beqr7bltv"]
 
 [ext_resource type="Texture2D" uid="uid://78n8g1uho43s" path="res://assets/colorPalette.png" id="1_gk3d6"]
 [ext_resource type="PackedScene" uid="uid://2sjbqq58a3ys" path="res://scenes/player.tscn" id="2_ge4u3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxeg5jyaunf2i" path="res://scenes/DrawableBush.tscn" id="5_33kxa"]
 [ext_resource type="PackedScene" uid="uid://bgs6ugycg7st7" path="res://scenes/non_drawable_bush.tscn" id="6_2wyso"]
 [ext_resource type="PackedScene" uid="uid://ct8j5e2yif5jt" path="res://scenes/card.tscn" id="7_i4f6q"]
+[ext_resource type="PackedScene" uid="uid://cdsjuhbwyhysr" path="res://scenes/ui_game_play.tscn" id="8_mvrny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2inoh"]
 texture = ExtResource("1_gk3d6")
@@ -55,41 +56,47 @@ collision_layer = 2
 
 [node name="DrawableBushNode2D" parent="." instance=ExtResource("5_33kxa")]
 
-[node name="nonDrawable_bush" parent="." instance=ExtResource("6_2wyso")]
+[node name="NonDrawablesAreas" type="Node" parent="."]
+
+[node name="nonDrawable_bush" parent="NonDrawablesAreas" instance=ExtResource("6_2wyso")]
 position = Vector2(312, -184)
 scale = Vector2(4.25688, 1.23919)
 
-[node name="nonDrawable_lava" parent="." instance=ExtResource("6_2wyso")]
+[node name="nonDrawable_lava" parent="NonDrawablesAreas" instance=ExtResource("6_2wyso")]
 position = Vector2(112, -224)
 powerUpWhoCantDraw = 1
 
-[node name="nonDrawableWater" parent="." instance=ExtResource("6_2wyso")]
+[node name="nonDrawableWater" parent="NonDrawablesAreas" instance=ExtResource("6_2wyso")]
 position = Vector2(600, -112)
 powerUpWhoCantDraw = 2
 
 [node name="waterCards" type="Node" parent="."]
 
 [node name="card2" parent="waterCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(144, -104)
+position = Vector2(128, -104)
 card_name = 3
 
 [node name="card" parent="waterCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(1200, -160)
+position = Vector2(160, -104)
 card_name = 4
 
 [node name="card3" parent="waterCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(496, -104)
+position = Vector2(216, -152)
 card_name = 5
 
 [node name="lavaCards" type="Node" parent="."]
 
 [node name="card2" parent="lavaCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(408, -184)
+position = Vector2(312, -160)
 
 [node name="card" parent="lavaCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(1464, -240)
+position = Vector2(272, -152)
 card_name = 2
 
 [node name="card3" parent="lavaCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(760, -184)
+position = Vector2(376, -144)
 card_name = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("8_mvrny")]
