@@ -46,7 +46,7 @@ func _process(_delta: float) -> void:
 			actualPowerUp = powerUpAvailable[indexPowerUpactual + 1]
 		else:
 			actualPowerUp = powerUpAvailable[0]
-		print("actual power up is : ", Globals.cardNames.find_key(actualPowerUp))
+		print("actual power up is : ", Globals.powerUp.find_key(actualPowerUp))
 
 
 func print_name_and_value_of_variable(string):

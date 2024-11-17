@@ -45,7 +45,6 @@ func remove_bush() -> void:
 	var audio_player = $Audio/remove as AudioStreamPlayer
 	if audio_player:
 		audio_player.play()
-		# audio_player.connect("finished", _on_remove_sound_finished)
 	else:
 		queue_free()
 
