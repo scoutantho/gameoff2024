@@ -5,6 +5,8 @@ var isDisplayOverlayEnable: bool = true
 var actualPowerUp : Globals.powerUp = Globals.powerUp.bush
 @export var powerUpAvailable : Array = [Globals.powerUp.bush]
 
+signal powerIsChanging
+signal powerIsAdded
 
 var cheatEnable = false
 signal noClipEnabling
@@ -47,6 +49,7 @@ func _process(_delta: float) -> void:
 		else:
 			actualPowerUp = powerUpAvailable[0]
 		print("actual power up is : ", Globals.powerUp.find_key(actualPowerUp))
+		powerIsChanging.emit()
 
 
 func print_name_and_value_of_variable(string):
@@ -66,5 +69,12 @@ func console_no_clip(): #convert to signal ?
 func resetWhenDied() -> void:
 	actualPowerUp = Globals.powerUp.bush
 	powerUpAvailable = [Globals.powerUp.bush]
+
+func AddPowerUp(powerUp: Globals.powerUp) -> void:
+	if powerUpAvailable.find(powerUp) == -1:
+		powerUpAvailable.append(powerUp)
+		print("power up added : ", Globals.powerUp.find_key(powerUp))
+		powerIsAdded.emit(powerUp)
+	pass
 
 	

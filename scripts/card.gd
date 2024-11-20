@@ -5,6 +5,7 @@ extends Area2D
 @export var card_name: Globals.cardNames
 
 @onready var sprite: AnimatedSprite2D = $cardSprite
+signal powerIsAdded
 
 func _ready() -> void:
 	match card_name:
@@ -34,11 +35,11 @@ func changingPowerUp(player) -> void:
 	 #if yes, enable the water power up
 	 #if no, do nothing
 	if GameManager.powerUpAvailable.find(Globals.powerUp.water) == -1 && player.cardHolds.has(Globals.cardNames.color_blue1) && player.cardHolds.has(Globals.cardNames.color_blue2) && player.cardHolds.has(Globals.cardNames.color_blue3):
-		GameManager.powerUpAvailable.append(Globals.powerUp.water)
+		GameManager.AddPowerUp(Globals.powerUp.water)
 		# todo ? gie the player a color to add at the begining of the game?
 		print("water power up enabled")
 	elif GameManager.powerUpAvailable.find(Globals.powerUp.lava) == -1 && player.cardHolds.has(Globals.cardNames.color_red1) && player.cardHolds.has(Globals.cardNames.color_red2) && player.cardHolds.has(Globals.cardNames.color_red3):
-		GameManager.powerUpAvailable.append(Globals.powerUp.lava)
+		GameManager.AddPowerUp(Globals.powerUp.lava)
 		# todo ? gie the player a color to add at the begining of the game?
 		print("lava power up enabled")
 	elif player.cardHolds.has(Globals.cardNames.story1) && player.cardHolds.has(Globals.cardNames.story2) && player.cardHolds.has(Globals.cardNames.story3):
