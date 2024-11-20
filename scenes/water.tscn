@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5edw1f538xvl"]
+[gd_scene load_steps=6 format=3 uid="uid://b5edw1f538xvl"]
 
+[ext_resource type="Script" path="res://scripts/water.gd" id="1_54dx2"]
 [ext_resource type="Texture2D" uid="uid://m3sncs3lvkhr" path="res://assets/water.png" id="1_vayxq"]
+[ext_resource type="AudioStream" uid="uid://d30bckq2hllnn" path="res://sounds/waterdrop.sfxr" id="2_flbip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3fuj"]
 atlas = ExtResource("1_vayxq")
@@ -11,6 +13,7 @@ radius = 8.0
 [node name="water" type="RigidBody2D" groups=["water"]]
 collision_layer = 16
 collision_mask = 3
+script = ExtResource("1_54dx2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 0.673697
@@ -20,3 +23,8 @@ texture = SubResource("AtlasTexture_i3fuj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_ahj3a")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="spawn" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_flbip")

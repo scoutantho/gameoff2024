@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://d30bckq2hllnn"
+path="res://.godot/imported/waterdrop.sfxr-dd173ced6b2252457cea3e35889ab6e8.sample"
+
+[deps]
+
+source_file="res://sounds/waterdrop.sfxr"
+dest_files=["res://.godot/imported/waterdrop.sfxr-dd173ced6b2252457cea3e35889ab6e8.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0
