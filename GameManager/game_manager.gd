@@ -15,10 +15,11 @@ var isAllcolorEnableCheatCode: bool :
 	set(value): 
 		if value:
 			cheatEnable = true
-			powerUpAvailable = [Globals.powerUp.bush, Globals.powerUp.water, Globals.powerUp.lava]
+			AddPowerUp(Globals.powerUp.water)
+			AddPowerUp(Globals.powerUp.lava)
 		else:
 			cheatEnable = false
-			powerUpAvailable = [Globals.powerUp.bush]
+			AddPowerUp(Globals.powerUp.bush)
 		isAllcolorEnableCheatCode = value
 
 signal isCheatPlateformEnabling
