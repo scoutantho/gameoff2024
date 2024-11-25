@@ -40,10 +40,6 @@ func _ready() -> void:
 		Globals.powerUp.water:
 			packedColorArray = Refs.gradient_blue
 	addSpriteWithRadialGradient(packedColorArray)
-	print("lol")
-			
-	# texture.gradient.set_color(1, colorTo)
-	# texture.gradient = texture.gradient.interpolate_colors(colorFrom, colorTo)
 
 func addSpriteWithRadialGradient(packedColor: PackedColorArray) -> void:
 	var texture = GradientTexture2D.new()
