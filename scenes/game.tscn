@@ -188,15 +188,15 @@ powerUpWhoCantDraw = 2
 [node name="waterCards" type="Node" parent="."]
 
 [node name="card2" parent="waterCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(656, -192)
+position = Vector2(2328, -312)
 card_name = 3
 
 [node name="card" parent="waterCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(160, -104)
+position = Vector2(1816, -40)
 card_name = 4
 
 [node name="card3" parent="waterCards" instance=ExtResource("7_i4f6q")]
-position = Vector2(216, -152)
+position = Vector2(-184, 296)
 card_name = 5
 
 [node name="lavaCards" type="Node" parent="."]
@@ -215,3 +215,21 @@ card_name = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("8_mvrny")]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="card" parent="Node" instance=ExtResource("7_i4f6q")]
+position = Vector2(3216, 24)
+card_name = 8
+
+[node name="card2" parent="Node" instance=ExtResource("7_i4f6q")]
+position = Vector2(2480, -592)
+card_name = 8
+
+[node name="card3" parent="Node" instance=ExtResource("7_i4f6q")]
+position = Vector2(1200, -168)
+card_name = 8
+
+[node name="card4" parent="Node" instance=ExtResource("7_i4f6q")]
+position = Vector2(-328, -128)
+card_name = 8

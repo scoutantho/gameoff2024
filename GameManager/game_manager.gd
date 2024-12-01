@@ -2,8 +2,8 @@ extends Node2D
 
 #todo replace with an enum and a colorPicker or something like that, saw it on a YT video
 var isDisplayOverlayEnable: bool = true
-var actualPowerUp : Globals.powerUp = Globals.powerUp.bush
-@export var powerUpAvailable : Array = [Globals.powerUp.bush]
+var actualPowerUp : Globals.powerUp = -1
+@export var powerUpAvailable : Array = []
 
 signal powerIsChanging
 signal powerIsAdded
@@ -68,14 +68,17 @@ func console_no_clip(): #convert to signal ?
 	pass
 
 func resetWhenDied() -> void:
-	actualPowerUp = Globals.powerUp.bush
-	powerUpAvailable = [Globals.powerUp.bush]
+	actualPowerUp = -1
+	powerUpAvailable = []
 
 func AddPowerUp(powerUp: Globals.powerUp) -> void:
 	if powerUpAvailable.find(powerUp) == -1:
 		powerUpAvailable.append(powerUp)
 		print("power up added : ", Globals.powerUp.find_key(powerUp))
 		powerIsAdded.emit(powerUp)
+	if powerUpAvailable.size() == 1:
+		actualPowerUp = powerUp
+		powerIsChanging.emit()
 	pass
 
 	

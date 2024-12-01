@@ -9,6 +9,7 @@ func _ready() -> void:
 	GameManager.connect("powerIsAdded", addingPowerUp)
 	lavaPowerRect.visible = false
 	waterPowerRect.visible = false
+	bushPowerRect.visible = false
 	lavaPowerRect.modulate = Color(1,1,1,0.5)
 	waterPowerRect.modulate = Color(1,1,1,0.5)
 	# updatePowerUp()
@@ -43,6 +44,8 @@ func addingPowerUp(powerUp: Globals.powerUp) -> void:
 			waterPowerRect.visible = true
 		Globals.powerUp.lava:
 			lavaPowerRect.visible = true
+		Globals.powerUp.bush:
+			bushPowerRect.visible = true
 		_:
 			print("no power up selected")
 	pass

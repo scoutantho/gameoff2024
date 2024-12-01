@@ -38,10 +38,10 @@ func changingPowerUp(player) -> void:
 		GameManager.AddPowerUp(Globals.powerUp.water)
 		# todo ? gie the player a color to add at the begining of the game?
 		print("water power up enabled")
-	elif GameManager.powerUpAvailable.find(Globals.powerUp.lava) == -1 && player.cardHolds.has(Globals.cardNames.color_red1) && player.cardHolds.has(Globals.cardNames.color_red2) && player.cardHolds.has(Globals.cardNames.color_red3):
-		GameManager.AddPowerUp(Globals.powerUp.lava)
+	elif GameManager.powerUpAvailable.find(Globals.powerUp.bush) == -1 && player.cardHolds.has(Globals.cardNames.color_red1) && player.cardHolds.has(Globals.cardNames.color_red2) && player.cardHolds.has(Globals.cardNames.color_red3):
+		GameManager.AddPowerUp(Globals.powerUp.bush)
 		# todo ? gie the player a color to add at the begining of the game?
-		print("lava power up enabled")
+		print("bush power up enabled")
 	elif player.cardHolds.has(Globals.cardNames.story1) && player.cardHolds.has(Globals.cardNames.story2) && player.cardHolds.has(Globals.cardNames.story3):
 		# todo handle the story thing -> how to get new powers ?
 		# historyEnabled = true
