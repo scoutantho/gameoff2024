@@ -5,7 +5,6 @@ extends Area2D
 @export var card_name: Globals.cardNames
 
 @onready var sprite: AnimatedSprite2D = $cardSprite
-signal powerIsAdded
 
 func _ready() -> void:
 	match card_name:

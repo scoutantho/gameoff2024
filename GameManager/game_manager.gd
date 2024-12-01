@@ -7,6 +7,7 @@ var actualPowerUp : Globals.powerUp = -1
 
 signal powerIsChanging
 signal powerIsAdded
+signal gameIsFinished
 
 var cheatEnable = false
 signal noClipEnabling
@@ -15,11 +16,12 @@ var isAllcolorEnableCheatCode: bool :
 	set(value): 
 		if value:
 			cheatEnable = true
+			AddPowerUp(Globals.powerUp.bush)
 			AddPowerUp(Globals.powerUp.water)
 			AddPowerUp(Globals.powerUp.lava)
 		else:
 			cheatEnable = false
-			AddPowerUp(Globals.powerUp.bush)
+			# AddPowerUp(Globals.powerUp.bush)
 		isAllcolorEnableCheatCode = value
 
 signal isCheatPlateformEnabling
@@ -33,7 +35,7 @@ var isCheatPlateformEnable : bool :
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	isCheatPlateformEnable = false
-	Console.add_command("noclip", console_no_clip)
+	Console.add_command("EnableAll", console_no_clip)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,6 +46,8 @@ func _process(_delta: float) -> void:
 		#otherwise we change to the first one
 		#todo add a sound when changing power up
 		#todo add a canvas telling you wich power up you have actually selected
+		if(powerUpAvailable.size() == 0):
+			return
 		var indexPowerUpactual = powerUpAvailable.find(actualPowerUp)
 		if powerUpAvailable.size() >= indexPowerUpactual + 1 + 1: #+1 because we want to check if the next one is in the array (and size is +1 than index, size start at 1 and index at 0)
 			actualPowerUp = powerUpAvailable[indexPowerUpactual + 1]
@@ -61,9 +65,10 @@ func print_name_and_value_of_variable(string):
 			break
 
 func console_no_clip(): #convert to signal ? 
-	no_clip_enable = !no_clip_enable
-	noClipEnabling.emit()
-	print("no clip is now : ", no_clip_enable)
+	# no_clip_enable = !no_clip_enable
+	# noClipEnabling.emit()
+	# print("no clip is now : ", no_clip_enable)
+	isAllcolorEnableCheatCode = !isAllcolorEnableCheatCode
 	cheatEnable = true
 	pass
 
@@ -81,4 +86,7 @@ func AddPowerUp(powerUp: Globals.powerUp) -> void:
 		powerIsChanging.emit()
 	pass
 
+func _gameIsFinished(player) -> void:
+	gameIsFinished.emit(player)
+	pass
 	

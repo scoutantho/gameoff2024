@@ -6,6 +6,7 @@ func _on_body_entered(_body:Node2D) -> void:
 	if Globals.player_hasDied:
 		return
 	Globals.player_hasDied = true
+	$audio.play()
 	print("you die!")
 	_body.set_physics_process(false)
 	_body.set_collision_layer(0)

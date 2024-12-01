@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bum1au5hyliew"]
+[gd_scene load_steps=3 format=3 uid="uid://bum1au5hyliew"]
 
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="1_py5a6"]
+[ext_resource type="AudioStream" uid="uid://dixycuju372gw" path="res://sounds/dead.sfxr" id="2_k8vbf"]
 
 [node name="killzone" type="Area2D"]
 script = ExtResource("1_py5a6")
@@ -8,6 +9,9 @@ script = ExtResource("1_py5a6")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k8vbf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -8,4 +8,4 @@ extends Node
 @export_group("Gradients")
 @export var gradient_blue : PackedColorArray = PackedColorArray([color_whitish, color_blue])
 @export var gradient_red : PackedColorArray = PackedColorArray([color_whitish, color_red])
-@export var gradient_yellow : PackedColorArray = PackedColorArray([color_whitish, color_yellow])
+@export var gradient_yellow : PackedColorArray = PackedColorArray([color_whitish, color_red])
