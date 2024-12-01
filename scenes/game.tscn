@@ -251,7 +251,7 @@ offset_top = 368.0
 offset_right = 134.0
 offset_bottom = 417.0
 theme_override_fonts/font = ExtResource("10_tonau")
-text = "ZQSD on an AZERTY to move 
+text = "QD or aD  to move (arrow works too)
 space to jump
 C to change power "
 
