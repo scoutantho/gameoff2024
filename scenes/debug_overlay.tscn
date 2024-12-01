@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/debug_overlay.gd" id="1_v7nra"]
 
 [node name="debug_overlay" type="CanvasLayer"]
+visible = false
 offset = Vector2(20, 20)
 transform = Transform2D(1, 0, 0, 1, 20, 20)
 script = ExtResource("1_v7nra")

@@ -239,7 +239,7 @@ position = Vector2(-328, -128)
 card_name = 8
 
 [node name="FinishFlag" parent="." instance=ExtResource("9_sgw4a")]
-position = Vector2(640, -432)
+position = Vector2(584, -112)
 scale = Vector2(2, 2)
 
 [node name="Labels" type="Node" parent="."]
