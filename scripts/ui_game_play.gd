@@ -49,17 +49,18 @@ func addingPowerUp(powerUp: Globals.powerUp) -> void:
 	# start a timer show the text for 3 seconds
 	labelPowerUp.text = "You have a new power : " + Globals.powerUp.find_key(powerUp)
 	labelPowerUp.visible = true
-	$Timer.start()
 
 	match powerUp:
 		Globals.powerUp.water:
 			waterPowerRect.visible = true
+			labelPowerUp.text += "\n try to water theses bushes"
 		Globals.powerUp.lava:
 			lavaPowerRect.visible = true
 		Globals.powerUp.bush:
 			bushPowerRect.visible = true
 		_:
 			print("no power up selected")
+	$Timer.start()
 	pass
 
 func _on_timer_timeout() -> void:

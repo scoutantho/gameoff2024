@@ -1,7 +1,7 @@
 extends Node2D
 
 #todo replace with an enum and a colorPicker or something like that, saw it on a YT video
-var isDisplayOverlayEnable: bool = true
+var isDisplayOverlayEnable: bool = false
 var actualPowerUp : Globals.powerUp = -1
 @export var powerUpAvailable : Array = []
 
